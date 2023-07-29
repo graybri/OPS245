@@ -80,18 +80,18 @@ In this lab, you will learn how to install your **Debian 12 VM** using the **Vir
 - **Disk space**: 238GB
 - **CPUs**: 1 CPU, 4 cores **(Do not mix and match! Always use 1 CPU, and multiples of 2 for cores.)**
 
-> ![Caution](/static/img/caution.png)**If you are using an external SSD drive on a Seneca Lab Computer you _must_ FORMAT it AS exFAT.**
+> ![Caution](/img/caution.png)**If you are using an external SSD drive on a Seneca Lab Computer you _must_ FORMAT it AS exFAT.**
 >
 > By default, most external drives will be formatted for NTFS. **NTFS-formatted drives may cause issues in this course if you are constantly moving between different Seneca Lab computers.** When you plug your drive in, open My Computer, right-click on the new drive, and select _Format_....
 > If you are storing the vmdk file (VirtualBox disk image) on your own devices internal storage, this is not necessary.
 
-![Format exFAT](/static/img/Format_ExFAT.png)
+![Format exFAT](/img/Format_ExFAT.png)
 
 **Confirm External SSD Device is Recognized as a Drive in Windows Explorer**
 
 It is essential that your Windows machine recognizes your SSD device with a drive letter on your Windows machine. Open up file explorer in Windows and examine the properties of your SSD Device. (Make note of its drive letter and path)
 
-> ![Caution](/static/img/caution.png)**Enabling Virtualisation on your Home Computer:**
+> ![Caution](/img/caution.png)**Enabling Virtualisation on your Home Computer:**
 >
 > If you are going to complete the labs on your own laptop, or desktop computer at home, there are a few things you need to be aware of:
 >
@@ -116,7 +116,7 @@ Before you can install your Debian Linux OS, you must first create a storage con
 If you will be completing the course work on your own computer then you should download and install VirtualBox from the [VirtualBox Website](https://www.virtualbox.org)
 If you will be completing the course work on Seneca Lab computers you will need to run VirtualBox from "MyApps"
 
-> ![Caution](/static/img/caution.png) > **Possible VirtualBox Installation Problem:**
+> ![Caution](/img/caution.png) > **Possible VirtualBox Installation Problem:**
 >
 > if you receive a warning that VirtualBox has missing dependencies for Python Core / win32api cancel the installation and follow [these instructions](https://www.sysnettechsolutions.com/en/fix-python-win32api-virtualbox/) before trying to install again.
 
@@ -130,7 +130,7 @@ If you will be completing the course work on Seneca Lab computers you will need 
 6.  Launch VirtualBox.
 7.  Click the File menu, then select Preferences.
 8.  Under the General tab, set the Default Machine Folder: to the correct location for Virtual Machines, enter the pathname for the newly created folder in your SSD or internal device, and click OK.
-    ![VirtualBox Prefs](/static/img/vboxprefs.png)
+    ![VirtualBox Prefs](/img/vboxprefs.png)
 9.  Click on the "New" icon to create a new VM.
     We will just be creating a "shell" for the VM to contain our Debian 12 Linux operating system. This will allow us to configure the VM properly so it will boot-up properly in our Seneca labs.
 
@@ -170,7 +170,7 @@ If you will be completing the course work on Seneca Lab computers you will need 
 2.  When the Installer Boot Screen appears, Select "Advanced options..."
 3.  Select "Expert install"
 
-> ![Caution](/static/img/caution.png)**Possible installer problem:**
+> ![Caution](/img/caution.png)**Possible installer problem:**
 >
 > If the installer starts but it does not correctly display in the window, either with a black or grey screen...
 >
@@ -180,7 +180,7 @@ If you will be completing the course work on Seneca Lab computers you will need 
 > - Type 'e' to edit the boot options
 > - Add the boot parameter `fb=false` to the linux line as shown below
 > - Type ctrl-x to boot
->   ![grup fb option](/static/img/debinstfb.png)
+>   ![grup fb option](/img/debinstfb.png)
 
 4.  Select "Choose Language"
 5.  Set your language to English and your location/locale to Canada
@@ -200,7 +200,7 @@ If you will be completing the course work on Seneca Lab computers you will need 
     > - If you leave the "root" account disabled then the first regular account that you create will be able to access administrative privileges by using the `sudo` command.
     >   Generally the 2nd option is considered to be better, especially in environments where multiple users may need admin access to the system. You can always enable root account access after installation if you want both options available.
     >
-    > ![Caution](/static/img/caution.png) > **WARNING: Do not login to a Graphical User Interface as the "root" account. Most Linux distributions prevent this.**
+    > ![Caution](/img/caution.png) > **WARNING: Do not login to a Graphical User Interface as the "root" account. Most Linux distributions prevent this.**
 
 15. Choose "No" to prevent "root" from being enabled
 16. Enter your full name for the initial user account and then "Continue"
@@ -210,14 +210,14 @@ If you will be completing the course work on Seneca Lab computers you will need 
 
 18. Set a password for your account. You will need to enter it twice.
 
-    > ![Caution](/static/img/caution.png)**"P@ssw0rd" is NOT a secure password!**
+    > ![Caution](/img/caution.png)**"P@ssw0rd" is NOT a secure password!**
 
 19. Select "Configure the clock" and "Yes" to use NTP to set the clock and "Continue" to accept the NTP server.
 20. Select the "Eastern" time zone:
 21. Select "Detect disks"
 22. Select "Partition disks" and choose the "Manual" partitioning method.
 
-> ![Caution](/static/img/caution.png)**It is very important that you setup disk partitioning correctly.
+> ![Caution](/img/caution.png)**It is very important that you setup disk partitioning correctly.
 > A mistake at this point in the lab could cause problems in future labs.**
 
 23. Select the "SCSI1" device which is the virtual disk for this VM.
@@ -244,7 +244,7 @@ The remaining storage will be configured using "Logical Volume Management (LVM)"
 
 42. Choose "Configure the Logical Volume Manager"
 43. Compare your settings with the image below, make sure they are correct and choose "yes" to write those changes to disk
-    ![debgpt](/static/img/debgpt.png)
+    ![debgpt](/img/debgpt.png)
 44. Choose "Create volume group" and set Volume group name to "vg_debhost"
 45. Select "/dev/sda3" as the new device for the volume group and then continue
 46. Choose "Create logical volume"
@@ -261,7 +261,7 @@ The remaining storage will be configured using "Logical Volume Management (LVM)"
 57. Set the Logical volume size to "100G"
 58. Choose "Finish"
 59. Choose the lv_home device
-    ![deblvm1](/static/img/deblvm1.png)
+    ![deblvm1](/img/deblvm1.png)
 60. Change the "Use as: " to "Ext4 journalling filesystem"
 61. Change the "Mount point:" to "/home" and leave the remaining defaults
 62. Choose the lv_images device
@@ -273,7 +273,7 @@ The remaining storage will be configured using "Logical Volume Management (LVM)"
 
 **Carefully review your partition settings before choosing "Finish partitioning and write changes to disk"
 Choose "Yes" to write the changes to disk**
-![debgptlvm](/static/img/debgptlvm-10.png)
+![debgptlvm](/img/debgptlvm-10.png)
 
 68. Choose "Install the base system"
 69. Select the default kernel suggested
@@ -294,7 +294,7 @@ Choose "Yes" to write the changes to disk**
 84. Choose "no automatic updates" (We will update manually)
 85. Choose "no" to the package usage survey
 86. On the Software Selection screen add the "SSH Server" to the default selections
-    ![tasksel](/static/img/tasksel.png)
+    ![tasksel](/img/tasksel.png)
 87. Select "Install the GRUB boot loader"
 88. Choose "No" to "Force GRUB installation to the EFI removable media path"
 89. Choose "Yes" to "Update NVRAM variables"
@@ -329,8 +329,8 @@ VirtualBox display your VM in 3 modes.
 Switch to Full Screen Mode
 
 Click on the icons in the top right corner and then the settings icon
-![settings](/static/img/debsettings.png)
-![settings2](/static/img/debsettings2.png)
+![settings](/img/debsettings.png)
+![settings2](/img/debsettings2.png)
 Then choose the "Displays" option
 
 Choose a display resolution that looks better. Start with 1920x1440 and then experiment with different resolutions until you find your preference.
@@ -369,7 +369,7 @@ This method of obtaining elevated privileges has several advantages over logging
 
 Because it is configurable to a fine degree, and because it provides for better security logging/accountability for System Admins, the preferred method of accessing root permissions is `sudo` . There are some circumstances where using the actual root account may be required.
 
-> ![Caution](/static/img/caution.png)**Keep the root password and your regular user account password the same on all of the VM's that you create in the labs.**
+> ![Caution](/img/caution.png)**Keep the root password and your regular user account password the same on all of the VM's that you create in the labs.**
 >
 > In order to simplify running the lab checking scripts in future labs, using the same root password for ALL machines (debhost and virtual machines). Also use the same regular username and passwords for all of your machines (debhost and virtual machines).
 
@@ -418,11 +418,11 @@ Using && as a separator between the 2 commands will cause the 2nd command to exe
 
 >
 
-> ![caution](/static/img/caution.png)**If the update results in an updated Linux Kernel then you will want to restart the system**
+> ![caution](/img/caution.png)**If the update results in an updated Linux Kernel then you will want to restart the system**
 
 ### **Safe Shutdown and Restart, and safely removing the external SSD**
 
-> ![caution](/static/img/caution.png)**It is ABSOLUTELY ESSENTIAL that you do NOT remove your SSD drive during your Debian 12 session.**
+> ![caution](/img/caution.png)**It is ABSOLUTELY ESSENTIAL that you do NOT remove your SSD drive during your Debian 12 session.**
 >
 > You are required to correctly shutdown your Debian 12 host virtual machine as you would with any operating system.
 >
@@ -452,7 +452,7 @@ An installation log file called `/var/log/installer/status` has been created to 
 
 ### **Turning off AppArmor**
 
-> ![caution](/static/img/caution.png)**Never disable AppArmor in the real world!!**
+> ![caution](/img/caution.png)**Never disable AppArmor in the real world!!**
 >
 > It is highly discouraged and unsafe to disable AppArmor on a public-facing server.
 > AppArmor is a Mandatory Access Control framework.
