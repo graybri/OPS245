@@ -293,7 +293,7 @@ Choose "Yes" to write the changes to disk**
 83. Select "Select and install software"
 84. Choose "no automatic updates" (We will update manually)
 85. Choose "no" to the package usage survey
-86. On the Software Selection screen add the "SSH Server" to the default selections
+86. On the Software Selection screen make sure that the **Debian Desktop Environment** and **Gnome** are selected and  add the "SSH Server" to the default selections
     ![tasksel](/img/tasksel.png)
 87. Select "Install the GRUB boot loader"
 88. Choose "No" to "Force GRUB installation to the EFI removable media path"
@@ -486,7 +486,6 @@ Therefore, it makes sense to also have a record of the installed software and im
 | **Command(s)**                                                                        | **Purpose**                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `uname -rv`, `hostname`, `ps -ef`                                                     | Basic Linux OS information such as **kernel** version, **host-name** of Linux server, and all **processes** that are running on the system after installation.                                                                |
-| `rpm -q -a \| wc -l`, `rpm -q -a -l \| wc -l`, `rpm -q -l gedit \| wc -l`             | Obtain number of installed packages in the rpm database. Option **-q** is to "query" information, option **-a** means for all installed packages, option **-l** means all files installed as opposed to just the application. |
 | `ip address show`, `ip route show`, `nslookup` (at prompt, enter command: **server**) | Obtain network connectivity confirmation including: **IP ADDRESS, Netmask, routing** (default gateway), and the default **Domain Name Server**.                                                                               |
 
 3. Refer to the Bash Shell Reference Guide prior to proceeding with this section.
